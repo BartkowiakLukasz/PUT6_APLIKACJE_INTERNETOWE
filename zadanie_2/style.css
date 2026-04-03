@@ -1,3 +1,4 @@
+/* GLOBAL */
 * {
     box-sizing: border-box;
     font-family: Verdana;
@@ -10,12 +11,60 @@ html, body, p {
     margin: 0;
     padding: 0;
 }
+.content {
+    flex: 1 0 auto;
+}
+html {
+    height: 100%;
+}
+body {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+/* HEADER */
 header {
     display: flex;
     flex-direction: row;
     align-items: center;
     padding: 30px;
 }
+header nav {
+    flex-grow: 2;
+    align-self: flex-start;
+    display: flex;
+    justify-content: flex-end;
+}
+header nav a {
+    width: 75px;
+}
+header div {
+    flex-grow: 1;
+    width: 75px;
+    height: 75px;
+}
+header div img {
+    width: 100%;
+    height: 100%;
+    border-radius: 100%;
+}
+h1 {
+    margin-left: 15px;
+    font-weight: bold !important;
+    font-size: 2em;
+    flex-grow: 1;
+}
+#menu {
+    display: none;
+}
+#hamburger_menu {
+    width: 90px;
+    height: auto;
+}
+
+
+/* MAIN */
 main {
     display: flex;
     flex-direction: row;
@@ -45,6 +94,8 @@ main article p {
     text-align: justify;
     padding: 15px;
 }
+
+/* FOOTER */
 footer {
     display: flex;
     flex-direction: column;
@@ -59,49 +110,8 @@ footer {
 footer p + p {
     font-weight: bold !important;
 }
-h1 {
-    margin-left: 15px;
-    font-weight: bold !important;
-    font-size: 2em;
-    flex-grow: 1;
-}
-header nav {
-    flex-grow: 2;
-    align-self: flex-start;
-    display: flex;
-    justify-content: flex-end;
-}
-header nav a {
-    width: 75px;
-}
-header div {
-    flex-grow: 1;
-    width: 75px;
-    height: 75px;
-}
-header div img {
-    width: 100%;
-    height: 100%;
-    border-radius: 100%;
-}
-body {
-    display: flex;
-    flex-direction: column;
-    height: 100%;
-}
-.content {
-    flex: 1 0 auto;
-}
-html {
-    height: 100%;
-}
-#menu {
-    display: none;
-}
-#hamburger_menu {
-    width: 90px;
-    height: auto;
-}
+
+/* RESPONSIVE */
 @media all and (max-width: 900px) {
     main {
         flex-wrap: wrap;
