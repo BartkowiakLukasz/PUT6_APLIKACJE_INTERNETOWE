@@ -12,7 +12,22 @@ function isEmailInvalid(str) {
     }
 }
 
+function checkStringAndFocus(obj, msg, validator) {
+    let str = obj.value;
+    let errorFieldName = "e_" + obj.name.substr(2, obj.name.length);
+    if (validator(str)) {
+        document.getElementById(errorFieldName).innerHTML = msg;
+        obj.focus();
+        return false;
+    }
+    else {
+        document.getElementById(errorFieldName).innerHTML = "";
+        return true;
+    }
+}
+
 function validate(formularz) {
+    let allValid = true;
     const elements = {
         "f_imie": ["Podaj imię!", isWhiteSpaceOrEmpty],
         "f_nazwisko": ["Podaj nazwisko!", isWhiteSpaceOrEmpty],
@@ -26,9 +41,12 @@ function validate(formularz) {
         let validator = elements[key][1]
         console.log(alert_msg, validator)
         if (!checkStringAndFocus(formularz.elements[key], alert_msg, validator)) {
-            return false;
+            allValid = false;
         }
     }
+    if (!allValid)
+        return false;
+    
     return true;
 }
 
