@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <title>JSON</title>
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script type="text/javascript">
+        var d =
+        {
+            "Pracownicy": {
+                "Pracownik": [
+                    { "Imie": "Maciej", "Nazwisko": "Zakrzewicz" },
+                    { "Imie": "Maciej", "Nazwisko": "Piernik" }
+                ]
+            }
+        };
+         $(function () {
+            let gotowyHTML = d.Pracownicy.Pracownik.map(({Imie, Nazwisko}) => {
+                return `<div> ${Imie} ${Nazwisko} </div>`;
+                });
+            $('#x').html(gotowyHTML.join(''));
+        });
+    </script>
+</head>
+
+<body>
+    <h1>Prowadzący mojego ulubionego przedmiotu</h1>
+    <div id="x"></div>
+</body>
+
+</html>
